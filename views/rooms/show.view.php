@@ -45,7 +45,7 @@
 
 <form method="post">
 
-<textarea name="comment" placeholder="Leave your feedback..." required></textarea>
+<textarea name="comment" placeholder="Leave your comment..." required></textarea>
 
 <button type="submit">Submit Comment</button>
 
