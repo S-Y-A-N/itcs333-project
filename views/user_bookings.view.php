@@ -1,6 +1,6 @@
-<?php require 'partials/head.php'; ?>
-<?php require 'partials/user-header.php'; ?>
-<?php require 'partials/search-bar.php'; ?>
+<?php require base_path('views/partials/head.php'); ?>
+<?php require base_path('views/partials/user-header.php.php'); ?>
+<?php require base_path('views/partials/bc-nav.php'); ?>
 
 <section>
     <a href="/home">Return to home page</a>
@@ -20,4 +20,4 @@
     <?php endforeach; ?>
 </ul>
 
-<?php require 'partials/footer.php'; ?>
+<?php require base_path('views/partials/footer.php'); ?>

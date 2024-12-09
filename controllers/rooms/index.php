@@ -1,6 +1,6 @@
 <?php
 
-authorize(isset($_SESSION['email']));
+authorize(isset($_SESSION['email']) && $_SESSION['admin'] === 0);
 
 use Core\Database;
 

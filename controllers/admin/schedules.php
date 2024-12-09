@@ -1,6 +1,6 @@
 <?php
 
-authorize($_SESSION['admin'] === 1);
+authorize(isset($_SESSION['email']) && $_SESSION['admin'] === 1);
 
 use Core\Validator;
 use Core\Database;

@@ -1,13 +1,13 @@
 <?php
 
+// Check if the user is logged in and not admin
+authorize(isset($_SESSION['email']) && $_SESSION['admin'] === 0);
+
 use Core\Validator;
 use Core\Database;
 
 $config = require base_path('config.php');
 $db = new Database($config['database']);
-
-// Check if the user is logged in and not admin
-authorize(isset($_SESSION['email']) && $_SESSION['admin'] === 0);
 
 $current_email = $_SESSION['email'];
 $stmt = $db->query('SELECT * FROM users WHERE email = :current_email', [

@@ -1,7 +1,9 @@
 <?php
 
 // Remove pfp from public folder
-unlink(base_path("public/{$_SESSION['pfp']}"));
+if (file_exists(base_path("public/{$_SESSION['pfp']}"))) {
+  unlink(base_path("public/{$_SESSION['pfp']}"));
+}
 
 // Unset all session variables
 $_SESSION = [];

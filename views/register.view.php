@@ -1,5 +1,5 @@
-<?php require 'partials/head.php'; ?>
-<?php require 'partials/header.php'; ?>
+<?php require base_path('views/partials/head.php'); ?>
+<?php require base_path('views/partials/header.php'); ?>
 
 <div class="form">
   <form id="register_form" enctype="multipart/form-data" method="POST">
@@ -35,4 +35,4 @@
   <a href="/login">Login</a>
 </div>
 
-<?php require 'partials/footer.php'; ?>
+<?php require base_path('views/partials/footer.php'); ?>

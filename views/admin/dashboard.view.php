@@ -5,7 +5,7 @@
 <?php $bookingsCount = [] ?>
 
 <section>
-    <h3>Room Bookings Statistics</h3>
+    <h2>Room Bookings Statistics</h2>
     <ul>
         <?php foreach ($rooms_usage as $usage): ?>
             <!-- <li>Room ID: <?php echo htmlspecialchars($usage['room_id']); ?> | Total Bookings: <?php echo htmlspecialchars($usage['bookings']); ?></li> -->
@@ -15,7 +15,7 @@
     </ul>
     <div class="chart-container">
         <canvas id="barChart" style="max-width: 750px;"></canvas>
-        <canvas id="pieChart" width="200" height="100" style="max-width: 750px;"></canvas>
+        <canvas id="pieChart"  style="max-width: 750px;"></canvas>
     </div>
 </section>
 

@@ -1,4 +1,8 @@
 <?php
+
+// Check if the user is logged in and not admin
+authorize(isset($_SESSION['email']) && $_SESSION['admin'] === 0);
+
 use Core\Database;
 
 // Connect to the database
