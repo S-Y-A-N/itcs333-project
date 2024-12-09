@@ -47,14 +47,18 @@
 
 <div class="overflow-auto">
 <table>
-  <tr>
-    <th>Booking ID</th>
-    <th>User Email</th>
-    <th>Room ID</th>
-    <th>Start Time</th>
-    <th>End Time</th>
-    <th>Action</th>
-  </tr>
+
+  <thead>
+    <tr>
+      <th>Booking ID</th>
+      <th>User Email</th>
+      <th>Room ID</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
   <?php foreach ($schedules as $schedule): ?>
   <tr>
       <form method="post">
@@ -76,6 +80,7 @@
       </form>
   </tr>
   <?php endforeach; ?>
+  
 </table>
 </div>
 

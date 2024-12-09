@@ -1,7 +1,5 @@
-<?php require 'partials/head.php'; ?>
-<?php require 'partials/header.php'; ?>
-<?php require base_path('views/partials/search-bar.php'); ?>
-
+<?php require base_path('views/partials/head.php'); ?>
+<?php require base_path('views/partials/header.php'); ?>
 
 <main>
 	<div role="group">
@@ -15,4 +13,4 @@
 	</div>
 </main>
 
-<?php require 'partials/footer.php'; ?>
+<?php require base_path('views/partials/footer.php'); ?>

@@ -1,6 +1,6 @@
-<?php require 'partials/head.php'; ?>
-<?php require 'partials/user-header.php'; ?>
-<?php require 'partials/search-bar.php'; ?>
+<?php require base_path('views/partials/head.php'); ?>
+<?php require base_path('views/partials/user-header.php'); ?>
+<?php require base_path('views/partials/search-bar.php'); ?>
 
 <section>
     <strong><a href="/rooms">Browse all rooms</a></strong>

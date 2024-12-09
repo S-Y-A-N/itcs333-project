@@ -1,6 +1,11 @@
 
 <?php
 
+if(isset($_SESSION['email'])) {
+  header('Location: /home');
+  exit();
+}
+
 use Core\Validator;
 use Core\Database;
 

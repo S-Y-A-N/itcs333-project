@@ -1,5 +1,5 @@
-<?php require 'partials/head.php'; ?>
-<?php require 'partials/header.php'; ?>
+<?php require base_path('views/partials/head.php'); ?>
+<?php require base_path('views/partials/header.php'); ?>
 
 <main>
 	<p>You have been logged out successfully</p>
@@ -8,4 +8,4 @@
   </p>
 </main>
 
-<?php require 'partials/footer.php'; ?>
+<?php require base_path('views/partials/footer.php'); ?>
