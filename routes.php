@@ -33,4 +33,4 @@ $router->get('/admin-rooms', 'controllers/admin/rooms.php');
 $router->get('/admin-schedules', 'controllers/admin/schedules.php');
 
 $router->post('/admin-rooms', 'controllers/admin/rooms.php');
-
+$router->post('/admin-schedules', 'controllers/admin/schedules.php');
