@@ -5,7 +5,14 @@ use Core\Database;
 $config = require base_path('config.php'); // Load your database config
 $db = new Database($config['database']); // Create a new Database object
 
-$email = $_SESSION['email']; // Get the logged-in user's Email from the session
+$email = $_SESSION['email']; // Get the logged-in user's email from the session
+
+// Validate that the user is logged in
+if (!isset($email)) {
+    // Redirect to login or show an error message
+    header('Location: login.php');
+    exit;
+}
 
 // Query to get upcoming bookings
 $upcomingBookings = $db->query('SELECT * FROM bookings WHERE email = :email AND booking_time > NOW()', [
@@ -24,3 +31,5 @@ view('user_bookings.view.php', [
     'upcoming' => $upcomingBookings,
     'past' => $pastBookings
 ]);
+
+?>

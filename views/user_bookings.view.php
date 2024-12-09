@@ -8,16 +8,30 @@
 
 <h2>Upcoming Bookings</h2>
 <ul>
-    <?php foreach ($upcoming as $booking): ?>
-        <li><?php echo htmlspecialchars($booking['room_id']); ?> at <?php echo htmlspecialchars($booking['booking_time']); ?></li>
-    <?php endforeach; ?>
+    <?php if (!empty($upcoming)): ?>
+        <?php foreach ($upcoming as $booking): ?>
+            <li>
+                Room ID: <?php echo htmlspecialchars($booking['room_id']); ?> at 
+                <?php echo htmlspecialchars(date('Y-m-d H:i', strtotime($booking['booking_time']))); ?>
+            </li>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <li>No upcoming bookings.</li>
+    <?php endif; ?>
 </ul>
 
 <h2>Past Bookings</h2>
 <ul>
-    <?php foreach ($past as $booking): ?>
-        <li><?php echo htmlspecialchars($booking['room_id']); ?> at <?php echo htmlspecialchars($booking['booking_time']); ?></li>
-    <?php endforeach; ?>
+    <?php if (!empty($past)): ?>
+        <?php foreach ($past as $booking): ?>
+            <li>
+                Room ID: <?php echo htmlspecialchars($booking['room_id']); ?> at 
+                <?php echo htmlspecialchars(date('Y-m-d H:i', strtotime($booking['booking_time']))); ?>
+            </li>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <li>No past bookings.</li>
+    <?php endif; ?>
 </ul>
 
 <?php require 'partials/footer.php'; ?>
