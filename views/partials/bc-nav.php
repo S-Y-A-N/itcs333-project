@@ -13,8 +13,12 @@
       <li><a href="/rooms">Rooms</a></li>
       <li><?= strtoupper($dept) ?></li>
 
-    <?php else : ?>
+    <?php elseif ($_SESSION['admin'] === 0) : ?>
       <li><a href="/home">Home</a></li>
+      <li><?= $h1 ?></li>
+
+    <?php else : ?>
+      <li><a href="/home">Dashboard</a></li>
       <li><?= $h1 ?></li>
 
     <?php endif; ?>

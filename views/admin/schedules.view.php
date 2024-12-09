@@ -1,4 +1,5 @@
 <?php require base_path('views/partials/head.php'); ?>
+<?php require base_path('views/partials/bc-nav.php'); ?>
 <?php require base_path('views/partials/admin-header.php'); ?>
 
 <form action="admin_schedules.php" method="post">
