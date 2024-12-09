@@ -52,13 +52,17 @@
 
 <h2>Existing Rooms</h2>
 <table>
-  <tr>
-      <th>Room ID</th>
-      <th>Room Name</th>
-      <th>Capacity</th>
-      <th>Equipment</th>
-      <th>Action</th>
-  </tr>
+
+  <thead>
+    <tr>
+        <th>Room ID</th>
+        <th>Room Name</th>
+        <th>Capacity</th>
+        <th>Equipment</th>
+        <th>Action</th>
+    </tr>
+  </thead>
+
   <?php foreach ($rooms as $room): ?>
   <tr>
       <form method="post">
@@ -81,6 +85,7 @@
       </form>
   </tr>
   <?php endforeach; ?>
+  
 </table>
 
 <?php require base_path('views/partials/footer.php'); ?>

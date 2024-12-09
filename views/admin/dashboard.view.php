@@ -4,21 +4,104 @@
 <?php $rooms = [] ?>
 <?php $bookingsCount = [] ?>
 
+<?php foreach ($rooms_usage as $usage): ?>
+    <?php array_push($rooms, $usage['room_id']) ?>
+    <?php array_push($bookingsCount, $usage['bookings']) ?>
+<?php endforeach; ?>
+
 <section>
     <h2>Room Bookings Statistics</h2>
-    <ul>
-        <?php foreach ($rooms_usage as $usage): ?>
-            <!-- <li>Room ID: <?php echo htmlspecialchars($usage['room_id']); ?> | Total Bookings: <?php echo htmlspecialchars($usage['bookings']); ?></li> -->
-            <?php array_push($rooms, $usage['room_id']) ?>
-            <?php array_push($bookingsCount, $usage['bookings']) ?>
-        <?php endforeach; ?>
-    </ul>
     <div class="chart-container">
         <canvas id="barChart" style="max-width: 750px;"></canvas>
         <canvas id="pieChart"  style="max-width: 750px;"></canvas>
     </div>
 </section>
 
+<section>
+    <h2>Most Popular Rooms</h2>
+    <div class="overflow-auto">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Room</th>
+                    <th>Total Bookings</th>
+                </tr>
+            </thead>
+
+            <?php foreach ($popular_rooms as $i => $room): ?>
+                <tr>
+                    <td>#<?= $i + 1 ?></td>
+                    <td> <?= "s40-" . $room['room_id'] ?> </td>
+                    <td> <?= $room['count'] ?> </td>
+                </tr>
+            <?php endforeach; ?>
+
+        </table>
+    </div>
+</section>
+
+<section>
+    <h2>Today's Bookings</h2>
+    <div class="overflow-auto">
+        <table>
+            <thead>
+                <tr>
+                    <th>Room</th>
+                    <th>Timeslot</th>
+                </tr>
+            </thead>
+
+            <?php foreach ($bookings_today as $booking): ?>
+                <tr>
+                    <td> <?= "s40-" . $booking['room_id'] ?> </td>
+                    <td> <?= $booking['s'] . " - " . $booking['e'] ?> </td>
+                </tr>
+            <?php endforeach; ?>
+
+
+            <tfoot>
+                <tr>
+                    <td>Total Bookings</td>
+                    <td><?= count($bookings_today) ?></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</section>
+
+<section>
+    <h2>This Week's Bookings</h2>
+    <div class="overflow-auto">
+        <table>
+            <thead>
+                <tr>
+                    <th>Room</th>
+                    <th>Timeslot</th>
+                </tr>
+            </thead>
+
+            <?php foreach ($bookings_week as $booking): ?>
+                <tr>
+                    <td> <?= "s40-" . $booking['room_id'] ?> </td>
+                    <td> <?= $booking['s'] . " - " . $booking['e'] ?> </td>
+                </tr>
+            <?php endforeach; ?>
+
+
+            <tfoot>
+                <tr>
+                    <td>Total Bookings</td>
+                    <td><?= count($bookings_week) ?></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</section>
+
+
+
+<!-- Chart.js -->
 <script>
     const xValues = <?= json_encode($rooms) ?>;
     const yValues = <?= json_encode($bookingsCount) ?>;
