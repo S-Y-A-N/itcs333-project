@@ -1,9 +1,6 @@
 <?php require base_path('views/partials/head.php'); ?>
-<?php require base_path('views/partials/room-bc-nav.php'); ?>
-<?php
-if($_SESSION['admin'] === 0) require base_path('views/partials/user-header.php');
-else require base_path('views/partials/admin-header.php');
-?>
+<?php require base_path('views/partials/bc-nav.php'); ?>
+<?php require base_path('views/partials/user-header.php'); ?>
 
 <main>
   <section class="room">
@@ -19,10 +16,20 @@ else require base_path('views/partials/admin-header.php');
   <?php endif ?>
 
   <form method="post">
-    <div style="height: 400px;" id="panorama"></div>
+    <div style="height: 400px;" id="panorama">
+      <?php if ($room['img_width'] < 1500 || $room['img_width'] > 1650) : ?>
+        <img class="room-img" src="<?= $room['img'] ?>" alt="Room Image">
+      <?php endif; ?>
+    </div>
 
     <div class="info">
       <table>
+        <?php if (isset($room['room_name'])) : ?>
+        <tr>
+          <td>Room Name</td>
+          <td><strong> <?= ucfirst($room['room_name']) ?> </strong></td>
+        </tr>
+        <?php endif; ?>
         <tr>
           <td>Room Type</td>
           <td> <?= ucfirst($room['type']) ?> </td>
@@ -55,7 +62,6 @@ else require base_path('views/partials/admin-header.php');
       </table>
       <p style="color: DarkSlateBlue;">• Mximum time period is <strong>2 hours</strong></p>
       <p style="color: DarkSlateBlue;">• Allowed booking time is <strong>8 AM - 6 PM</strong></p>
-      <!-- <p style="color: DarkSlateBlue;">• You can only book a room once a week. Please speak to the adminstration to book for you if you need more</p> -->
     </div>
     <hr>
     <button type="submit" name="book_room">Book Room</button>
@@ -64,11 +70,12 @@ else require base_path('views/partials/admin-header.php');
   </section>
 </main>
 
+<?php if ($room['img_width'] > 1500 && $room['img_width'] < 1650) : ?>
 <script>
 pannellum.viewer('panorama', {
     "type": "equirectangular",
-    "panorama": "classroom-360.jpg",
-    "preview": "classroom-360.jpg",
+    "panorama": "<?= $room['img'] ?>",
+    "preview": "<?= $room['img'] ?>",
     "autoRotate": -2,
     "vaov": 70,
     "vOffset": 0,
@@ -82,5 +89,6 @@ pannellum.viewer('panorama', {
     "maxHfov":100,
 });
 </script>
+<?php endif; ?>
 
 <?php require base_path('views/partials/footer.php'); ?>

@@ -39,5 +39,6 @@ if ($dept === 'rooms') {
 view('rooms/index.view.php', [
   'h1' => $h1,
   'p' => $p,
-  'rooms' => $rooms
+  'rooms' => $rooms,
+  'dept' => $dept
 ]);

@@ -1,2 +1,5 @@
 *.pdf
-notes.txt
+*.txt
+public/*.png
+public/*.jpg
+public/*.jpeg

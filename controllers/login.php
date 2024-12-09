@@ -14,7 +14,6 @@ $errors = [];
 // only used inside view.php for aria-invalid attribute
 $invalid = true;
 
-// TODO - here we add all the login logic and validation
 if (Validator::post('login')) {
 
   // query to find email in db
@@ -46,8 +45,7 @@ if (Validator::post('login')) {
 
       // copy profile pic to public folder
       $_SESSION['pfp'] = $user['profile_picture'];
-      copy(base_path("uploads/{$user['profile_picture']}"), base_path("public/{$user['profile_picture']}"));
-
+      copy(base_path("uploads/{$_SESSION['pfp']}"), base_path("public/{$_SESSION['pfp']}"));
       header('Location: /home');
       exit();
 
