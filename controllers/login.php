@@ -45,7 +45,7 @@ if (Validator::post('login')) {
 
       // copy profile pic to public folder
       $_SESSION['pfp'] = $user['profile_picture'];
-      copy(base_path("uploads/{$_SESSION['pfp']}"), base_path("public/{$_SESSION['pfp']}"));
+      copy(base_path("//uploads/{$_SESSION['pfp']}"), base_path("//public/{$_SESSION['pfp']}"));
       header('Location: /home');
       exit();
 

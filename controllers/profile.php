@@ -41,8 +41,8 @@ if (Validator::post('update_pfp')) {
             $profile_picture = "{$current_email}.{$ext}";
 
             // move file to uploads, copy to public
-            move_uploaded_file($file, base_path("uploads/$profile_picture"));
-            copy(base_path("uploads/$profile_picture"), base_path("public/$profile_picture"));
+            move_uploaded_file($file, base_path("//uploads/$profile_picture"));
+            copy(base_path("//uploads/$profile_picture"), base_path("//public/$profile_picture"));
 
             // update record in db
             try {
@@ -76,7 +76,7 @@ else if (Validator::post('delete_pfp')) {
         unlink(base_path("uploads/{$_SESSION['pfp']}"));
         
         $profile_picture = 'default-pfp.png';
-        copy(base_path("uploads/$profile_picture"), base_path("public/$profile_picture"));
+        copy(base_path("//uploads/$profile_picture"), base_path("//public/$profile_picture"));
     
         $stmt = $db->query("UPDATE users SET profile_picture = :profile_picture WHERE email = :current_email", [
             'profile_picture' => $profile_picture,
