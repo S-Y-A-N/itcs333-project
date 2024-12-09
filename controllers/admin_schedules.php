@@ -15,7 +15,7 @@ if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== 1) {
 try {
     $bookings = $db->query('SELECT b.*, r.room_name FROM bookings b JOIN rooms r ON b.room_id = r.room_id')->fetchAll(PDO::FETCH_ASSOC);
 } catch (Exception $e) {
-    // Handle the error (log it, show a friendly message, etc.)
+    
     die('Error fetching bookings: ' . htmlspecialchars($e->getMessage()));
 }
 
@@ -23,7 +23,7 @@ try {
 try {
     $rooms = $db->query('SELECT * FROM rooms')->fetchAll(PDO::FETCH_ASSOC);
 } catch (Exception $e) {
-    // Handle the error (log it, show a friendly message, etc.)
+  
     die('Error fetching rooms: ' . htmlspecialchars($e->getMessage()));
 }
 
