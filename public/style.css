@@ -118,14 +118,14 @@ fieldset[role=group] > [type=submit] {
   gap: 5px;
 }
 
-.pfp-btns > :first-child {
+.del-btn {
   border: var(--pico-border-width) solid red;
   background-color: red;
   width: min-content;
   transition: background-color var(--pico-transition);
 }
 
-.pfp-btns > :first-child:hover {
+.del-btn:hover {
   border: var(--pico-border-width) solid rgb(190, 0, 0);
   background-color: rgb(190, 0, 0);
 }

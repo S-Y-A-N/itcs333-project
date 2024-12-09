@@ -15,8 +15,6 @@ spl_autoload_register(function ($class) {
   require base_path("{$class}.php");
 });
 
-
-
 // create router object
 $router = new \Core\Router();
 
@@ -29,7 +27,15 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 // Start Session
 session_start();
 
-dump($_SESSION);
+// delte old room images from public
+$files = scandir(base_path("public"));
+foreach ($files as $file) {
+  if (mime_content_type($file) === 'image/jpeg' && $file !== "{$_SESSION['pfp']}") {
+    unlink(base_path("public/$file"));
+  }
+}
+
+// dump($_SESSION);
 
 // go to controller of the current uri, for example: if the url is '/' it goes to 'controllers/index.php'
 $router->route($uri, $method);

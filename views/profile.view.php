@@ -55,7 +55,7 @@
                     <?php endif ?>
 
                     <div class="flex-row pfp-btns">
-                        <button  type="submit" name="delete_pfp">Delete</button>
+                        <button class="del-btn" type="submit" name="delete_pfp">Delete</button>
                         <button type="submit" name="update_pfp">Update Profile Picture</button>
                     </div>
                 </div>
