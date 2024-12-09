@@ -1,25 +1,36 @@
 <?php
+
 use Core\Database;
 
 $config = require base_path('config.php'); 
 $db = new Database($config['database']);
 
 // Check if the user is logged in as an admin
-if (!isset($_SESSION['admin'])) {
+if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== 1) {
     header("Location: admin_login.php");
     exit();
 }
 
+// Fetch bookings and related room names
+try {
+    $bookings = $db->query('SELECT b.*, r.room_name FROM bookings b JOIN rooms r ON b.room_id = r.room_id')->fetchAll(PDO::FETCH_ASSOC);
+} catch (Exception $e) {
+    // Handle the error (log it, show a friendly message, etc.)
+    die('Error fetching bookings: ' . htmlspecialchars($e->getMessage()));
+}
 
-$schedules = $db->query('SELECT s.*, r.room_name FROM schedules s JOIN rooms r ON s.room_id = r.room_id')->fetchAll(PDO::FETCH_ASSOC);
+// Fetch all rooms
+try {
+    $rooms = $db->query('SELECT * FROM rooms')->fetchAll(PDO::FETCH_ASSOC);
+} catch (Exception $e) {
+    // Handle the error (log it, show a friendly message, etc.)
+    die('Error fetching rooms: ' . htmlspecialchars($e->getMessage()));
+}
 
-
-$rooms = $db->query('SELECT * FROM rooms')->fetchAll(PDO::FETCH_ASSOC);
-
-
+// Load the view
 view('admin_schedules.view.php', [
-    'h1' => 'admin shcedules',
+    'h1' => 'Admin Bookings',
     'p' => '',
-    'schedules' => $schedules,
+    'bookings' => $bookings,
     'rooms' => $rooms 
 ]);
