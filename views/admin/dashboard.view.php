@@ -77,6 +77,7 @@
             <thead>
                 <tr>
                     <th>Room</th>
+                    <th>Date</th>
                     <th>Timeslot</th>
                 </tr>
             </thead>
@@ -84,6 +85,7 @@
             <?php foreach ($bookings_week as $booking): ?>
                 <tr>
                     <td> <?= "s40-" . $booking['room_id'] ?> </td>
+                    <td> <?= $booking['date'] ?> </td>
                     <td> <?= $booking['s'] . " - " . $booking['e'] ?> </td>
                 </tr>
             <?php endforeach; ?>
