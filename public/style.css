@@ -185,10 +185,22 @@ section a:has(article):hover {
   box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.267);
 }
 
+/* Admin */
+.chart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* Media Queries */
 @media (min-width: 1280px) {
   .profile-form-container > * {
     width: auto;
+  }
+
+  #barChart {
+    max-width: 650px !important;
   }
 }
