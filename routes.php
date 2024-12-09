@@ -31,6 +31,11 @@ $router->get('/statistics', 'controllers/statistics.php');
 // feedback
 $router->get('/feedback', 'controllers/feedback.php');
 
+// admin
+// Admin Routes
+$router->get('/admin_dashboard', 'controllers/admin_dashboard.php');
+$router->get('/admin_rooms', 'controllers/admin_rooms.php');
+$router->get('/admin_schedules', 'controllers/admin_schedules.php');
 // Post Requests
 $router->post('/login', 'controllers/login.php');
 $router->post('/register', 'controllers/register.php');

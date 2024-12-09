@@ -26,6 +26,10 @@
       <small class="error" id="password-helper"><?= $errors['password'] ?></small>
     <?php endif ?>
 
+    <!-- Admin Registration Checkbox -->
+    <label for="admin">Register as Admin</label>
+    <input type="checkbox" id="admin" name="admin" value="1">
+
     <button type="submit">Submit</button>
   </form>
 </div>

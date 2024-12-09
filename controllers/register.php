@@ -47,18 +47,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   }
 
-  // if no errors
+  // If no errors
   if (empty($errors)) {
+    // Determine if the user is registering as an admin
+    $isAdmin = isset($_POST['admin']) ? 1 : 0; // Default to 0 if not checked
 
-    // query to insert user data into the db
-    $db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
+    // Query to insert user data into the db, including admin status
+    $db->query('INSERT INTO users(email, password, admin) VALUES(:email, :password, :admin)', [
       'email' => $_POST['email'],
-      'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)
+      'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+      'admin' => $isAdmin
     ]);
 
-
-    $errors['message'] = 'Regestration successful';
-
+    $errors['message'] = 'Registration successful';
   }
 }
 
