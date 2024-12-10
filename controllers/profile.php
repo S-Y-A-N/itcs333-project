@@ -96,11 +96,7 @@ else if (Validator::post('update_name')) {
 
     else {
 
-        $nameQuery = $db->query('SELECT username FROM users WHERE email = :email', [
-            'email' => $_SESSION['email']
-        ]);
-
-        if ($nameQuery->rowCount() === 0) {
+        if ($_SESSION['username'] !== $username) {
             try {
                 $stmt = $db->query("UPDATE users SET username = :username WHERE email = :current_email", [
                     'username' => $username,
