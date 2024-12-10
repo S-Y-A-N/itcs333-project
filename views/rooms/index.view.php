@@ -5,10 +5,6 @@
 
 <main>
 
-  <section>
-    <a href="/home">Return to home page</a>
-  </section>
-
   <section class="grid">
     <?php foreach ($rooms as $room) : ?>
       <a href="/room?id=<?= $room['room_id'] ?>">

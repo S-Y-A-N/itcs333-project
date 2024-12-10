@@ -1,10 +1,6 @@
 <?php require base_path('views/partials/head.php'); ?>
-<?php require base_path('views/partials/user-header.php.php'); ?>
 <?php require base_path('views/partials/bc-nav.php'); ?>
-
-<section>
-    <a href="/home">Return to home page</a>
-</section>
+<?php require base_path('views/partials/user-header.php'); ?>
 
 <h2>Upcoming Bookings</h2>
 <ul>

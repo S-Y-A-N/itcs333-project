@@ -1,6 +1,15 @@
 <header class="container">
+
+<?php $uri = parse_url($_SERVER['REQUEST_URI'])['path']; ?>
+
 	<hgroup class="flex-row">
-		<img class="pfp" src="<?= $_SESSION['pfp'] ?>" alt="Profile Picture">
+		
+	<?php if (strpos($uri, 'rooms/') !== false) : ?>
+		<img style="display: hidden;">
+	<?php else : ?>
+			<img class="pfp" src="<?= $_SESSION['pfp'] ?>" alt="Profile Picture">
+	<?php endif; ?>
+
 		<div>
 			<h1><?= $h1 ?></h1>
 			<p><?= $p ?></p>

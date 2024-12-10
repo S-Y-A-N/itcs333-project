@@ -17,7 +17,7 @@
 
   <form method="post">
     <div style="height: 400px;" id="panorama">
-      <?php if ($room['img_width'] < 1500 || $room['img_width'] > 1650) : ?>
+      <?php if ($room['img_width'] < 5120) : ?>
         <img class="room-img" src="<?= $room['img'] ?>" alt="Room Image">
       <?php endif; ?>
     </div>
@@ -70,24 +70,24 @@
   </section>
 </main>
 
-<?php if ($room['img_width'] > 1500 && $room['img_width'] < 1650) : ?>
+<?php if ($room['img_width'] === 5120) : ?>
 <script>
-pannellum.viewer('panorama', {
-    "type": "equirectangular",
-    "panorama": "<?= $room['img'] ?>",
-    "preview": "<?= $room['img'] ?>",
-    "autoRotate": -2,
-    "vaov": 70,
-    "vOffset": 0,
-    "minPitch": 0,
-    "maxPitch": 0,
-    "pitch": 0,
-    "showZoomCtrl": false,
-    "keyboardZoom": false,
-    "mouseZoom": false,
-    "minHfov":100,
-    "maxHfov":100,
-});
+  pannellum.viewer('panorama', {
+      "type": "equirectangular",
+      "panorama": "<?= $room['img'] ?>",
+      "preview": "<?= $room['img'] ?>",
+      "autoRotate": -2,
+      "vaov": 70,
+      "vOffset": 0,
+      "minPitch": 0,
+      "maxPitch": 0,
+      "pitch": 0,
+      "showZoomCtrl": false,
+      "keyboardZoom": false,
+      "mouseZoom": false,
+      "minHfov":100,
+      "maxHfov":100,
+  });
 </script>
 <?php endif; ?>
 
